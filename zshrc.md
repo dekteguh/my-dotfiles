@@ -3,21 +3,22 @@
 ### Install Git
 Ubuntu `sudo apt-get install git-all`
 Mac usually has been installed
-More details can be seen (here)[https://git-scm.com/book/en/v2/Getting-Started-Installing-Git]
+More details can be seen [here](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
 
 ### Install Curl/Wget
 
 ### Install Zsh
-More details can be seen (here)[https://github.com/robbyrussell/oh-my-zsh/wiki/Installing-ZSH]
+More details can be seen [here](https://github.com/robbyrussell/oh-my-zsh/wiki/Installing-ZSH)
 
 ### Install Oh-my-zsh
-More details can be seen (here)[http://ohmyz.sh/]
+More details can be seen [here](http://ohmyz.sh/)
 
 ### Install Powerlevel9k Theme
-More details can be seen (here)[https://github.com/bhilburn/powerlevel9k/wiki/Install-Instructions#step-1-install-powerlevel9k]
+More details can be seen [here](https://github.com/bhilburn/powerlevel9k/wiki/Install-Instructions#step-1-install-powerlevel9k)
 
 Copy-paste in .zshrc file
 
+```ruby
   ZSH_THEME="powerlevel9k/powerlevel9k"
 
   POWERLEVEL9K_MODE='awesome-patched'
@@ -38,3 +39,4 @@ Copy-paste in .zshrc file
   POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND="white"
   POWERLEVEL9K_DIR_DEFAULT_FOREGROUND="white"
   DISABLE_AUTO_TITLE="true"
+```
