@@ -9,11 +9,18 @@ Simple setting to code via vim
 - Be sure that you have installed git
 - Be sure that you have installed [oh-my-zsh]('http://ohmyz.sh/')
 - Download [iTerm2ColorScheme](http://iterm2colorschemes.com/), Import colorscheme in Profile iTerm Terminal, Select colorscheme and see the result in Terminal
--- Clone Vundle and add to `~/.vim/bundle` using command `$ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim`
+- Clone Vundle and add to `~/.vim/bundle` using command `$ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim`
 - Clone or download or copy paste my vimrc
 - Install using command `vim +PluginInstall +qall`
 - Open Terminal and see what's happen
 - There are some colorschemes available in colorscheme plugin, you can edit and see the result
+
+### Some Information
+
+- I use NERDTRee, to use it, `<Leader> then press t`
+- To move from one buffer to other in NERDTRee, `<Leader> then press m or n`
+- To make buffer horizontally or vertically, `<Leader> h j k l`
+- etc
 
 ## Tmux Configuration
 
