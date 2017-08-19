@@ -1,4 +1,4 @@
-![](screenshoot-result.png?raw=true)
+![](screenshoot-tmux-and-vim.png?raw=true)
 
 # my-dotfiles
 
@@ -8,19 +8,17 @@ Simple setting to code via vim
 
 - Be sure that you have installed git
 - Be sure that you have installed [oh-my-zsh]('http://ohmyz.sh/')
-- Clone Vundle and add to `~/.vim/bundle` using command `$ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim`
+- Download [iTerm2ColorScheme](http://iterm2colorschemes.com/), Import colorscheme in Profile iTerm Terminal, Select colorscheme and see the result in Terminal
+-- Clone Vundle and add to `~/.vim/bundle` using command `$ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim`
 - Clone or download or copy paste my vimrc
 - Install using command `vim +PluginInstall +qall`
 - Open Terminal and see what's happen
+- There are some colorschemes available in colorscheme plugin, you can edit and see the result
 
-## Change Theme
+## Tmux Configuration
 
-I've changed my theme to gruvbox in iTerm, .vimrc, and also changed Airline theme.
-
-- Import gruvbox-data.itermcolors to Profile of iTerm
-- Activate gruvbox theme in vim (74-76, remove the ")
-- Deactivate the solarized theme in vim (80-83, add the ")
-- Deactivate line 98, add " and change line 99 theme solarized to `luna`
-- See what's happen
-
-![](screenshoot-gruvbox.png?raw=true)
+- To use tmux, open Terminal, then type `tmux`
+- To make horizontal pane, type `Ctrl+a` at the same time, then type `-`
+- To make vertical pane, type `Ctrl+a` at the same time, then type `|`
+- To move from one pane to others, type `Alt+ (arrow Up, Down, Left, Right)`
+- To close session of tmux/pane, type `Ctrl+d`
