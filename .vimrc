@@ -7,13 +7,10 @@ filetype off
 " ========== General Config ==========
 
 set number                      " Line numbers
-set backspace=indent,eol,start  " Allow backspace in insert mode
 set history=10                  " Store 10 histories
 set showcmd                     " Show incomplete cmds down to the bottom
 set showmode                    " Show current mode down to the bottom
-"set gcr=a:blinkon0              " Disable cursor blink
-set visualbell                  " No sounds
-set autoread                    " Reload files changed outside vim
+set mouse=a
 
 " ========== Change Leader ==========
 
@@ -36,9 +33,6 @@ set noswapfile
 set nobackup
 set nowb
 
-" For MacVim
-" set guifont=FiraCode:h16
-
 " initialize vundle
 set rtp+=~/.vim/bundle/Vundle.vim
 
@@ -46,10 +40,8 @@ call vundle#begin()
 " start all plugins below
 
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'morhetz/gruvbox'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'itchyny/lightline.vim'
 Plugin 'scrooloose/nerdtree.git'
+Plugin 'scrooloose/nerdcommenter'
 Plugin 'aperezdc/vim-template'
 " Plugin 'davidhalter/jedi-vim'
 Plugin 'editorconfig/editorconfig-vim'
@@ -67,52 +59,30 @@ Plugin 'ctrlpvim/ctrlp.vim'               " Command + T replacement by Ctrl + P
   set wildignore+=*/node_modules/*
   map <C-B> :CtrlPBuffer<CR>
   map <C-P> :CtrlPMixed<CR>
-
-Plugin 'Shougo/neocomplete'
-Plugin 'Shougo/neosnippet'
-Plugin 'Shougo/neosnippet-snippets'
-  let g:neosnippet#enable_snipmate_compability = 1
-  let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
-
-  " Plug key-mappings
-  imap <C-k> <Plugin>(neosnippet_expand_or_jump)
-  smap <C-k> <Plugin>(neosnippet_expand_or_jump)
-  xmap <C-k> <Plugin>(neosnippet_expand_target)
-
-  smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-  \ "\<Plugin>(neosnippet_expand_or_jump)" : "\<TAB>"
-
-" Plugin 'ryanoasis/vim-devicons'
-  " set guifont=FiraCode\ Nerd\ Font:h22
-  " let g:airline_powerline_fonts = 1
-
 Plugin 'tpope/vim-eunuch'
-Plugin 'kristijanhusak/vim-hybrid-material'
-
-
-" Plugin 'tpope/vim-rails.git'              " Rails plugin
-Plugin 'mileszs/ack.vim'                  " Search everything in the current dir via :Ack
+Plugin 'tpope/vim-rails.git'              " Rails plugin
 Plugin 'jtratner/vim-flavored-markdown.git'
 Plugin 'nelstrom/vim-markdown-preview'    " Enable markdown preview + github flavored markdown
 Plugin 'mattn/emmet-vim'
-" Plugin 'pangloss/vim-javascript'
-" Plugin 'vim-ruby/vim-ruby'
+Plugin 'pangloss/vim-javascript'
+Plugin 'vim-ruby/vim-ruby'
 Plugin 'terryma/vim-multiple-cursors'
-" Plugin 'mxw/vim-jsx'
+Plugin 'mxw/vim-jsx'
 " Plugin 'mustache/vim-mustache-handlebars'
 " Plugin 'nikvdp/ejs-syntax'
 " Plugin 'digitaltoad/vim-jade'
 " Plugin 'shawncplus/phpcomplete.vim'
-" Plugin 'valloric/youcompleteme'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-endwise'
 Plugin 'jiangmiao/auto-pairs'
-
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'exvim/ex-autocomplpop'
+Plugin 'flazz/vim-colorschemes'
 
 " stop all plugins above
+
 call vundle#end()
 
 " filetype func on
@@ -121,22 +91,29 @@ syntax on
 
 " set color for gruvbox
 syntax enable
-colorscheme gruvbox
-set background=dark
-" set colorcolumn=80
-
-" set color for solarized
-" syntax enable
-" colorscheme solarized
-" color solarized
-" set background=dark
-
+colorscheme railscasts
 " lightline fix
 set laststatus=2
 
+" Tab
+vmap <Tab> >gv
+vmap <S-Tab> <gv
+
 " NERDTree shortcut
-map <Leader>n :NERDTreeToggle<CR>
+map <Leader>t :NERDTreeToggle<CR>
 map <Leader>r <esc> :NERDTreeFind<CR>
+let g:tmux_navigator_no_mappings = 1
+
+map <BS> :TmuxNavigateLeft<cr>
+map <Leader>h :TmuxNavigateLeft<cr>
+map <Leader>j :TmuxNavigateDown<cr>
+map <Leader>k :TmuxNavigateUp<cr>
+map <Leader>l :TmuxNavigateRight<cr>
+map <Leader>\ :TmuxNavigatePrevious<cr>
+
+map <Leader>n :bn<cr>
+map <Leader>m :bp<cr>
+
 
 " Customize the settings for vim-template plugin
 let g:email = "dekteguh@gmail.com"
@@ -149,6 +126,8 @@ let g:license = "MIT"
 let g:airline_theme='tomorrow'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#tabline#branch#enabled = 1
 " set noshowmode
 let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
 " set statusline=%=&P\ %f\ %m
@@ -171,35 +150,26 @@ let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
 let g:user_emmet_leader_key = '<C-Z>' " Using Ctrl + Z + ,
 
-" Javascript and JSX
-" let g:javascript_plugin_jsdoc = 1
-" let g:jsx_ext_required = 0
-
-" Italic
-highlight Comment gui=italic
-highlight Comment cterm=italic
-highlight htmlArg gui=italic
-highlight htmlArg cterm=italic
-
 " Nicer copy paste
+
+" copy in visual mode
 vmap <Leader>y "+y
+" cut in visual mode
 vmap <Leader>d "+d
-nmap <Leader>y "+y
-nmap <Leader>d "+d
-nmap <Leader>p "+p
-nmap <Leader>P "+P
+" paste in visual mode
 vmap <Leader>p "+p
 vmap <Leader>P "+P
 
-let g:tmux_navigator_no_mappings = 1
+" copy in normal mode
+nmap <Leader>y "+y
+" cut in normal mode
+nmap <Leader>d "+d
+" paste in normal mode
+nmap <Leader>p "+p
+nmap <Leader>P "+P
 
-map <BS> :TmuxNavigateLeft<cr>
-map <leader>h :TmuxNavigateLeft<cr>
-map <leader>j :TmuxNavigateDown<cr>
-map <leader>k :TmuxNavigateUp<cr>
-map <leader>l :TmuxNavigateRight<cr>
-map <leader>\ :TmuxNavigatePrevious<cr>
-
-map <leader>a :Ack!
-"Remove all trailing whitespace by pressing F5
-nnoremap <leader>s :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
+noremap tn :tabnew<space>
+nnoremap tk :tabnext<cr>
+nnoremap tj :tabprev<cr>
+nnoremap th :tabfirst<cr>
+nnoremap tl :tablast<cr>
