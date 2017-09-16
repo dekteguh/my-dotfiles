@@ -93,9 +93,13 @@ call vundle#begin()
   
   Plugin 'mattn/emmet-vim'
     " Emmet
-    let g:user_emmet_install_global = 0
-    autocmd FileType html,css EmmetInstall
-    let g:user_emmet_leader_key = '<C-Z>' " Using Ctrl + Z + ,
+    let g:user_emmet_mode = 'a'
+    let g:user_emmet_leader_key = '<Tab>' " Using Tab + ,
+    let g:user_emmet_settings = {
+      \'javascript.jsx': {
+        \  'extends': 'jsx',
+      \},
+    \}
   
   Plugin 'christoomey/vim-tmux-navigator'
     " TmuxNavigation
@@ -115,14 +119,30 @@ call vundle#begin()
   Plugin 'tpope/vim-commentary'
   Plugin 'tpope/vim-endwise'
   Plugin 'jiangmiao/auto-pairs'
-  Plugin 'exvim/ex-autocomplpop' 
+  " Plugin 'exvim/ex-autocomplpop' 
   Plugin 'terryma/vim-multiple-cursors'
   Plugin 'tpope/vim-fugitive'
   Plugin 'editorconfig/editorconfig-vim'
-  
+  Plugin 'tpope/vim-unimpaired'
+    " Line Bubbling
+    nmap <C-k> [e
+    nmap <C-j> ]e
+
+  Plugin 'pangloss/vim-javascript'
+  Plugin 'mxw/vim-jsx'
+  Plugin 'w0rp/ale'
+    " Setting ale
+    let g:ale_sign_error = '●' " Less aggressive than the default '>>'
+    let g:ale_sign_warning = '.'
+    let g:ale_lint_on_enter = 0 " Less distracting when opening a new file
+
+  Plugin 'skywind3000/asyncrun.vim'
+    " Setting asyncrun
+    autocmd BufWritePost *.js AsyncRun -post=checktime ./node_modules/.bin/eslint --fix %
+
   " stop all plugins above
 call vundle#end()
 
 " set colorscheme
-  colorscheme railscasts
+  colorscheme colorsbox-material
  
