@@ -132,7 +132,7 @@ nnoremap tl :tablast<cr>
 " =======================================
 
 " Set colorscheme
-  colorscheme cobalt2
+  colorscheme Tomorrow-Night 
   set background=dark
     
 " NERDTree shortcut
@@ -146,7 +146,7 @@ nnoremap tl :tablast<cr>
   let g:license = "MIT"
 
 " Airline theme
-  let g:airline_theme='papercolor'
+  let g:airline_theme='molokai'
   let g:airline_powerline_fonts = 1
   let g:airline#extensions#tabline#enabled = 1
   let g:airline#extensions#tabline#fnamemod = ':t'
@@ -193,13 +193,14 @@ nnoremap tl :tablast<cr>
 " Setting asyncrun
   autocmd BufWritePost *.js AsyncRun -post=checktime ./node_modules/.bin/eslint --fix %
 
-" UltiSnips
-  autocmd FileType js UltiSnipsAddFiletypes javascript-react
-
+" UltiSnips Configuration
   " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-  let g:UltiSnipsExpandTrigger="<Tab>"
-  let g:UltiSnipsJumpForwardTrigger="<C-b>"
-  let g:UltiSnipsJumpBackwardTrigger="<C-z>"
-
-  " If you want :UltiSnipsEdit to split your window.
+  let g:UltiSnipsSnippetDirectories=['~/.vim/bundle/vim-snippets/UltiSnips/','UltiSnips']
   let g:UltiSnipsEditSplit="vertical"
+  let g:UltiSnipsListSnippets="<C-S-tab>"
+  let g:UltiSnipsExpandTrigger="<tab>"
+  let g:UltiSnipsJumpForwardTrigger="<tab>"
+  let g:UltiSnipsJumpBackwardTrigger="<S-tab>"
+  inoremap TT <tab>
+  
+  map <C-e> :UltiSnipsEdit<CR>
