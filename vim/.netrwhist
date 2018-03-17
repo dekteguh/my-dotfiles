@@ -1,0 +1,5 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_1='/Users/ekoteguhw/Sites/ruby-on-rails/sinau.web.id'
+let g:netrw_dirhist_2='/Users/ekoteguhw/Sites/ruby-on-rails/sinau.web.id/app'
+let g:netrw_dirhist_3='/Users/ekoteguhw/Sites/ruby-on-rails/sinau.web.id/app/controllers'

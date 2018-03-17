@@ -1,0 +1,21 @@
+[color]
+	ui = true
+[user]
+	name = Eko Teguh Widodo
+  email = id.ekoteguhw@gmail.com
+[alias]
+  st = status
+  cm = commit -m
+  cv = commit -v
+  aa = add .
+  puom = push -u origin master
+  fo = fetch origin
+  v = -v
+  co = checkout
+  cob = checkout -b
+  cot = checkout -t
+  br = branch
+  ba = branch -a
+  pl = pull
+  ps = push
+
